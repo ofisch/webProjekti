@@ -1,0 +1,24 @@
+* {
+    font-family: 'Sono', sans-serif;
+}
+
+.profileBox {
+    width: 400px;
+    height: 150px;
+    margin: auto;
+    background-color: aquamarine;
+    display: flex;
+}
+
+.left {
+    padding: 10px;
+    width: 40%;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+.right {
+    width: 60%;
+    margin-left: 4%;
+    margin-top: 1%;
+}

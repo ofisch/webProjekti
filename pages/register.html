@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <title>Rekisteröidy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d55e8313bb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="regStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+   
+        <div class="container">
+            <main>
+            <header>
+                <h2>Sovellus</h2>
+            </header>
+            <section>
+                <form action="/formPost" method="post">
+                    <input type="email" name="email" id="email" placeholder="sähköpostiosoite" required><br><br>
+                    <input type="text" name="username" id="username" placeholder="nimimerkki" required><br><br>
+                    <input type="password" name="password" id="password" placeholder="salasana" required><br><br> 
+                    <input type="submit" id="submit" value="rekisteröidy">
+                </form>
+            </section>
+        </main>
+        <div class="sub-container">
+            <p id="existingAccount">käyttäjätili olemassa?</p>
+            <p><a href="login.html" id="loginLink">kirjaudu sisään</a></p>
+        </div>
+        </div>
+  </body>
+</html>
