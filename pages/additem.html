@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d55e8313bb.js" crossorigin="anonymous"></script>
-    <script src="../additem.js"></script>
+    <script src="additem.js"></script>
     <link rel="stylesheet" href="additemStyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,18 +21,21 @@
             </header>
             <section>
                 <form action="/" method="post">
-                    <input type="file" name="img" id="img" accept="image/*" required><br><br>     
+                  <div>
+                    <img id="imgPreview">
+                  </div>
+                    <input type="file" name="img" id="img" accept="image/*" onchange="showPreview(event);" required><br><br>     
                     <input type="text" name="title" id="title" placeholder="otsikko" required><br><br>          
                     <input type="text" name="description" id="description" placeholder="kuvaus" required><br><br>   
                     <div class="dropdown">
-                        <a onclick="myFunction()" class="dropbtn">Dropdown</a>
+                        <a onclick="myFunction()" id="dropButton" class="dropbtn">⬇️tyyppi</a>
                         <div id="myDropdown" class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
+                          <input onclick="selectType()"type="radio" id="lend" name="postType" value="lainataan">
+                          <label for="lend">lainataan</label><br>       
+                          <input onclick="selectType()" type="radio" id="sell" name="postType" value="myydään">
+                          <label for="sell">myydään</label><br>                   
                         </div>
-                      </div>
-                   
+                      </div>                   
                 </form>
             </section>
         </main>

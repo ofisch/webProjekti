@@ -34,9 +34,8 @@ header {
     left: 28px;
 }
 
-#email,
-#username,
-#password {
+#title,
+#description {
     width: 100%;
     margin-bottom: 5px;
     padding: 8px 12px;
@@ -45,7 +44,9 @@ header {
     border-radius: 3px;
 }
 
-#submit {
+#submit,
+#img,
+#dropButton {
     width: 100%;
     background-color: #3897f0;
     border: 1px solid #3897f0;
@@ -54,6 +55,13 @@ header {
     font-weight: bold;
     cursor: pointer;
     border-radius: 3px;
+}
+
+#imgPreview {
+  width:100%;
+  display:none;
+  margin-bottom:30px;
+  border: 2px solid #3897f0;
 }
 
 .dropbtn {
@@ -86,16 +94,8 @@ header {
   z-index: 1;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content input:hover {background-color: #ddd;}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
