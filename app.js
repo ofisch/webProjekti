@@ -7,30 +7,36 @@ const flash = require('express-flash');
 const cookieParser = require('cookie-parser');
 const sessions = require('express-session');
 const multer = require('multer');
+const path = require('path');
 const userModel = require('./models/userModel');
 const listingModel = require('./models/listingModel');
+const { httpError } = require('./utils/errors');
 
 const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', './views')
 
+
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './uploads');
+    destination: (req, file, cb) => {
+        cb(null, './uploads')
     },
-    filename: function (req, file, cb) {
-        cb(null, `${Date.now()}--${file.originalname}`);
+    filename: (req, file, cb) => {
+        console.log(file);
+        cb(null, `${file.originalname}`)
     }
 })
-const upload = multer({ 
-    storage: storage,
-    limits: { fileSize: 10000000}
-});
+
+const upload = multer({ storage: storage });
+
+
 
 // middlewaret
 
-app.use('/uploads', express.static('uploads'));
+//app.use('/uploads', express.static('uploads'));
+
+//app.use(multer);
 
 app.use(express.json()); // lähetys json-muodossa
 
@@ -51,10 +57,14 @@ app.use(sessions({
 
 let session;
 
+app.get('/feed', (req, res) => {
+    res.render('feed');
+})
+
 app.get('/user', (req, res) => {
     session = req.session;
     if (session.userid) {
-        res.send("Welcome user <a href=\'/logout'>click to logout</a>");
+        res.render('feed');
     }
     else {
         res.sendFile(__dirname + '/pages/login.html');
@@ -71,11 +81,11 @@ app.post('/userPost', (req, res) => {
             if (result[0] === undefined) {
                 res.send('Sähköpostiosoite tai salasana on väärä');
             } else {
-                data = JSON.parse(JSON.stringify(result));
-                if (toString(password) === toString(data[0].salasana)) {
+                data = JSON.parse(JSON.stringify(result));                            
+                if (password === data[0].salasana) {
                     session = req.session;
                     session.userid = data[0].kayttajaId;               
-                    res.send(`Tervetuloa, <a href=\'/myprofile'>siirry omaan profiiliin</a>`);
+                    res.redirect('feed');
                 } else {
                     res.send('Sähköpostiosoite tai salasana on väärä');
                 }
@@ -85,7 +95,7 @@ app.post('/userPost', (req, res) => {
 
 app.get('/logout', (req, res) => {
     req.session.destroy();
-    res.redirect('/user');
+    res.redirect('/feed');
 });
 
 app.get('/myprofile', (req, res) => {
@@ -107,6 +117,8 @@ app.get('/myprofile', (req, res) => {
                 }
             })
 
+    } else {
+        res.sendFile(__dirname + '/pages/login.html');
     }
 });
 
@@ -133,17 +145,22 @@ app.post('/formPost', (req, res) => {
 });
 
 app.get('/newListing', (req, res) => {
-    res.sendFile(__dirname + '/pages/additem.html');
+    if (req.session.userid) {
+        res.render('newListing');
+    } else {
+        res.sendFile(__dirname + '/pages/login.html');
+    }
 })
 
 app.post('/newListingPost', upload.single('img'), (req, res) => {
+   
     if (req.session.userid) {
 
   
     const title = req.body.title;
     const desc = req.body.description;
     const type = req.body.postType;
-    const img = "./uploads/" + req.body.img;
+    const img = "uploads/" + req.body.img;
     const time = "2022-12-12 13:00:00";
     const userId = req.session.userid
 
@@ -156,7 +173,8 @@ app.post('/newListingPost', upload.single('img'), (req, res) => {
 
     listingModel.addListing(title, type, img, time, desc, userId)
     .then(function (result) {
-        res.sendFile(__dirname + '/pages/index.html');
+        //res.sendFile(__dirname + '/pages/index.html');
+        res.redirect('/feed');
     });
 } else {
     res.redirect('/user');
