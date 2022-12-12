@@ -16,10 +16,12 @@ function selectType() {
       if (radioButtonValue == "lainataan") {
         dropButton = document.getElementById("dropButton");
         dropButton.innerHTML = "lainataan";
+        dropButton.style.color = "black"
         dropButton.style.backgroundColor = "lightgreen"
       } else if (radioButtonValue == "myydään") {
         dropButton = document.getElementById("dropButton");
         dropButton.innerHTML = "myydään";
+        dropButton.style.color = "black"
         dropButton.style.backgroundColor = "yellow"
       } 
     }

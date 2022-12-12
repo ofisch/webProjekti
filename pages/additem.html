@@ -20,7 +20,7 @@
                 <h3>Uusi listaus</h3>
             </header>
             <section>
-                <form action="/" method="post">
+                <form action="/newListingPost" method="post">
                   <div>
                     <img id="imgPreview">
                   </div>
@@ -35,7 +35,8 @@
                           <input onclick="selectType()" type="radio" id="sell" name="postType" value="myydään">
                           <label for="sell">myydään</label><br>                   
                         </div>
-                      </div>                   
+                      </div>  
+                      <input type="submit" id="submit" value="lisää">                 
                 </form>
             </section>
         </main>
