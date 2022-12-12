@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d55e8313bb.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
     <link rel="stylesheet" href="indexStyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +27,23 @@
             <h2>Syöte</h2>
         </header>
         <section>
+
+            <% if (data.length) {%>
+                <% for(let listing of data) { %>
+                    <div id="post1">              
+                        <h3><%= listing.otsikko %></h3>                          
+                    <div>
+                        <img src="/uploads/1670856309784--IMG_9050.JPG" style="width: 100%; height: 300px;">
+                    </div>
+                    <p><%= listing.kuvaus %></p>
+                </div> 
+                 
+                <% } %>
+            <% } else { %>
+                    <div>listauksia ei löytynyt</div>
+                <% } %>
+
+
             <div id="post1">              
                     <h3>Lainataan laskin</h3>                          
                 <div>

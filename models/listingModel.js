@@ -3,6 +3,17 @@ const pool = require('../database');
 const {httpError} = require('../utils/errors');
 const promisePool = pool.promise();
 
+const getAllListings = async (next) => {
+    try {
+        const [rows] = await promisePool.execute(`SELECT listausId, otsikko, tyyppi, kuva, aika, kuvaus, kayttajaId
+                                                FROM Listaus `);
+        return rows;
+      } catch (e) {
+        console.error('getAllCats', e.message);
+        next(httpError('Database error', 500));
+      }
+}
+
 const getListing = async (listingId, next) => {
     try {
         const [rows] = await promisePool.execute(`SELECT listausId, otsikko, tyyppi, kuva, aika, kuvaus, kayttajaId 
@@ -27,5 +38,6 @@ const addListing = async (title, type, img, time, desc, userId, next) => {
 
 module.exports = {
     getListing,
+    getAllListings,
     addListing,
 };

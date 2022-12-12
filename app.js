@@ -11,6 +11,7 @@ const path = require('path');
 const userModel = require('./models/userModel');
 const listingModel = require('./models/listingModel');
 const { httpError } = require('./utils/errors');
+const { json } = require('express');
 
 const app = express();
 
@@ -58,7 +59,15 @@ app.use(sessions({
 let session;
 
 app.get('/feed', (req, res) => {
-    res.render('feed');
+    listingModel.getAllListings()
+    .then(function (result) {
+       
+        let data = JSON.parse(JSON.stringify(result));
+        for (let i = 0; i < data.length; i++) {
+            //console.log(data[i]);
+        }
+        res.render('feed', {data});
+    }) 
 })
 
 app.get('/user', (req, res) => {
