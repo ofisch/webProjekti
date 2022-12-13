@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d55e8313bb.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
     <link rel="stylesheet" href="indexStyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,19 +18,33 @@
             <ul>
                 <li><input type="search" name="search" placeholder="haku"></li>
             </ul>
-            <a href="#"><i class="fa-solid fa-plus" id="newPost"></i></a>
-            <a href="#"><i class="fa-solid fa-circle-user" id="myProfile"></i></a>
+            <a href="/newListing"><i class="fa-solid fa-plus" id="newPost"></i></a>
+            <a href="/myprofile"><i class="fa-solid fa-circle-user" id="myProfile"></i></a>
            
         </nav>
         <main>
         <header>
             <h2>Syöte</h2>
         </header>
-        <section>
+        <section id="listings">
+            <div class="listing">              
+                <h3>Lainataan laskin</h3>                          
+            <div>
+                <img class="listingImage" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Calculator.kodabar.jpg" style="width: 100%; height: 300px;">    
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>  
+        <div class="listing">              
+            <h3>Lainataan laskin</h3>                          
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Calculator.kodabar.jpg" style="width: 100%; height: 300px;">    
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div> 
             <div id="post1">              
                     <h3>Lainataan laskin</h3>                          
                 <div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Calculator.kodabar.jpg" style="width: 100%; height: 300px;">
+                    <img src="../uploads/IMG_4887.JPG" style="width: 100%; height: 300px;">    
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>   

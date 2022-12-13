@@ -81,6 +81,11 @@ input[type=text]:focus {
     background-color:lightblue;
   }
 
+.listingImage {
+    width: 100%; 
+    height: 300px;
+}
+
 #post1 {
     width: 100%;
     height: 420px;

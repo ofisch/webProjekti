@@ -30,45 +30,19 @@
 
             <% if (data.length) {%>
                 <% for(let listing of data) { %>
-                    <div id="post1">              
-                        <h3><%= listing.otsikko %></h3>                          
+                    <div class="listing">              
+                        <h3><%= listing.tyyppi %>: <%= listing.otsikko %></h3>                          
                     <div>
-                        <img src="/uploads/1670856309784--IMG_9050.JPG" style="width: 100%; height: 300px;">
+                        <img class="listingImg" src="../<%= listing.kuva %>" style="width: 100%; height: 300px;">  
+                                       
                     </div>
                     <p><%= listing.kuvaus %></p>
-                </div> 
-                 
+                    <a href="<%= listing.kayttajaId %>"><%= listing.kayttajaId %></a>  
+                </div>           
                 <% } %>
             <% } else { %>
                     <div>listauksia ei löytynyt</div>
-                <% } %>
-
-
-            <div id="post1">              
-                    <h3>Lainataan laskin</h3>                          
-                <div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Calculator.kodabar.jpg" style="width: 100%; height: 300px;">
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>   
-            <div id="post2">              
-                <h3>Myydään kyniä</h3>                          
-            <div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUn03-C9HUY_-csGtHqTrdiIwZcd2DkXGN9w&usqp=CAU" style="width: 100%; height: 270px;">
-            </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>   
-        <div id="post3">              
-            <h3>Lainataan läppärin laturi</h3>                          
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>     
-        <div id="post1">              
-            <h3>Lainataan Tekiikan kaavasto-kirja</h3>                          
-        <div>
-            <img src="https://www.finlandiakirja.fi/media/catalog/product/cache/d736c1dee3794630c3835723ca38a3d2/c/u/cu_p_1214250_0.jpg" style="width: 100%; height: 300px;">
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>  
+                <% } %> 
         </section>
         </main>
     </div>

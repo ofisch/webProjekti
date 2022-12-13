@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
         cb(null, './uploads')
     },
     filename: (req, file, cb) => {
-        console.log(file);
+        //console.log(file);
         cb(null, `${file.originalname}`)
     }
 })
@@ -35,7 +35,7 @@ const upload = multer({ storage: storage });
 
 // middlewaret
 
-//app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static('uploads'));
 
 //app.use(multer);
 
@@ -59,16 +59,21 @@ app.use(sessions({
 let session;
 
 app.get('/feed', (req, res) => {
+    let username;
+
+
+
     listingModel.getAllListings()
-    .then(function (result) {
-       
-        let data = JSON.parse(JSON.stringify(result));
+    .then(function (result) {    
+        let data = JSON.parse(JSON.stringify(result));   
         for (let i = 0; i < data.length; i++) {
-            //console.log(data[i]);
+            //console.log(data[i]);       
         }
+      
         res.render('feed', {data});
+        //res.sendFile(__dirname + '/pages/index.html', {data});
     }) 
-})
+});
 
 app.get('/user', (req, res) => {
     session = req.session;
@@ -163,20 +168,22 @@ app.get('/newListing', (req, res) => {
 
 app.post('/newListingPost', upload.single('img'), (req, res) => {
    
-    if (req.session.userid) {
-
+    if (req.session.userid) {  
   
     const title = req.body.title;
     const desc = req.body.description;
     const type = req.body.postType;
-    const img = "uploads/" + req.body.img;
+    //const img = "uploads/" + req.body.img;
+    //console.log(req.body.img);
+    let img = "uploads/" + req.file.filename;
+    console.log(img);
     const time = "2022-12-12 13:00:00";
     const userId = req.session.userid
 
     console.log(title);
     console.log(desc);
     console.log(type);
-    console.log(img);
+    //console.log(img);
     console.log(time);
     console.log(userId);
 
