@@ -171,7 +171,7 @@ app.post('/formPost', (req, res) => {
             if (result[0] === undefined) {
                 userModel.addUser(email, username, password)
                     .then(function (result) {
-                        res.sendFile(__dirname + '/pages/index.html');
+                        res.redirect('/app/feed');
                     })
             } else {
                 res.send(`Sähköpostiosoitteelle ${email} on jo olemassa tili`);
