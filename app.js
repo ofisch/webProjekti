@@ -58,6 +58,10 @@ app.use(sessions({
 
 let session;
 
+app.get('/', (req, res) => {
+    res.redirect('/app/feed');
+})
+
 app.get('/feed', (req, res) => {
     let username;
 
