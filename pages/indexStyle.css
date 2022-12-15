@@ -17,29 +17,56 @@ body {
 
 #listings {
     padding: 15px;
-    border: 3px solid #dfdddd;
+
 }
 
 .listing {
     margin-top: 10px;
-    border: 3px solid #dfdddd;
+    border: 3px solid #9A998C;
     border-radius: 15px;
 }
 
-.listing h3, p, a {
+.listing h3, p, a, button {
     padding-left: 10px;
 }
 
 .listing h3 {
-    border-bottom: 3px solid #dfdddd;
+    border-bottom: 3px solid #9A998C;
     padding-bottom: 5px;
 }
 
 .listing p {
-    border-top: 3px solid #dfdddd;
-    border-bottom: 3px solid #dfdddd;
+    border-top: 3px solid #9A998C;
+    border-bottom: 3px solid #9A998C;
     height: 35px;
+    padding-top: 15px;
 }
+
+.listing a {
+    color: black;
+    padding: 3px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.listing a:hover {
+    color: #3897f0;
+}
+
+#listingUser {
+
+}
+
+.user {
+    padding-bottom: 13px; 
+    margin-left: 9px; 
+    position: relative; 
+    display: inline-block;
+}
+
+.show {display: block;}
 
 nav {
     display: flex;

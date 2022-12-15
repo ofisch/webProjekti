@@ -35,32 +35,19 @@ window.onload = function () {
 
 }
 
-
-
-/*
-for (let listing of data) {
-    listingContainer
-.innerHTML = '';
-
-    const img = document.createElement('img');
-    img.src = url + '/uploads/' + listing.kuva;
-    img.alt = listing.kuvaus;
-
-    const figure = document.createElement('figure').appendChild(img);
-
-    const h2 = document.createElement('h2');
-    h2.innerHTML = cat.name;
-
-    const p1 = document.createElement('p');
-    p1.innerHTML = `Birthdate: ${cat.birthdate}`;
-
-    const p2 = document.createElement('p');
-    p2.innerHTML = `Weight: ${cat.weight}kg`;
-
-    const p3 = document.createElement('p');
-    p3.innerHTML = `Owner: ${cat.ownername}`;
-
-    const li = document.createElement('li');
-    li.classList.add('light-border');
+function openMenu() {
+    document.getElementById("myDropdown").classList.toggle("show");
 }
-*/
+
+window.onclick = function(event) {
+    if (!event.target.matches('#listingUser')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
