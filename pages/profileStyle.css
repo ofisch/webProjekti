@@ -22,3 +22,11 @@
     margin-left: 4%;
     margin-top: 1%;
 }
+
+#listings {
+    width: 400px;
+    height: 300px;
+    margin: auto;
+    background-color: red;
+    display: flex;
+}

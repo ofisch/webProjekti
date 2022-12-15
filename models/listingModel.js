@@ -5,8 +5,10 @@ const promisePool = pool.promise();
 
 const getAllListings = async (next) => {
     try {
-        const [rows] = await promisePool.execute(`SELECT listausId, otsikko, tyyppi, kuva, aika, kuvaus, kayttajaId
-                                                FROM Listaus `);
+        const [rows] = await promisePool.execute(`SELECT listausId, otsikko, tyyppi, kuva, aika, kuvaus, Listaus.kayttajaId, Profiili.nimimerkki
+                                                FROM Listaus
+                                                JOIN Profiili 
+                                                ON Profiili.kayttajaId = Listaus.kayttajaId`);
         return rows;
       } catch (e) {
         console.error('getAllCats', e.message);
@@ -25,6 +27,17 @@ const getListing = async (listingId, next) => {
     }
 };
 
+const getListingByUserId = async (userId, next) => {
+    try {
+        const [rows] = await promisePool.execute(`SELECT listausId, otsikko, tyyppi, kuva, aika, kuvaus, kayttajaId 
+                                                FROM Listaus WHERE kayttajaId = "${userId}"`);
+        return rows;
+    } catch (e) {
+        console.error('getListing', e.message);
+        next(httpError('Database error', 500));
+    }
+}
+
 const addListing = async (title, type, img, time, desc, userId, next) => {
     try {
         const [rows] = await promisePool.execute(`INSERT INTO Listaus (otsikko, tyyppi, kuva, aika, kuvaus, kayttajaId) 
@@ -38,6 +51,7 @@ const addListing = async (title, type, img, time, desc, userId, next) => {
 
 module.exports = {
     getListing,
+    getListingByUserId,
     getAllListings,
     addListing,
 };

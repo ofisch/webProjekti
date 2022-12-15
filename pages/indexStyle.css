@@ -15,10 +15,29 @@ body {
     margin: auto;
 }
 
+#listings {
+    padding: 15px;
+    border: 3px solid #dfdddd;
+}
+
+.listing {
+    margin-top: 10px;
+    border: 3px solid #dfdddd;
+}
+
+.listing h3, p, a {
+    padding-left: 10px;
+}
+
+.listing p {
+    border-top: 3px solid #dfdddd;
+    border-bottom: 3px solid #dfdddd;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
-    background-color: #fff;
+    background-color: #e5e5e5;
     border-bottom: 2px solid #9A998C;
     align-items: center;
     flex-direction: row;
@@ -76,33 +95,11 @@ header {
     left: 50px;
 }
 
-
 input[type=text]:focus {
     background-color:lightblue;
-  }
+}
 
 .listingImage {
     width: 100%; 
     height: 300px;
-}
-
-#post1 {
-    width: 100%;
-    height: 420px;
-    background-color: greenyellow;
-    border: 1px solid #000;
-}
-
-#post2 {
-    width: 100%;
-    height: 420px;
-    background-color: yellow;
-    border: 1px solid #000;
-}
-
-#post3 {
-    width: 100%;
-    height: 100px;
-    background-color: aquamarine;
-    border: 1px solid #000;
 }
