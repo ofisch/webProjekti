@@ -58,7 +58,7 @@ app.use(sessions({
 
 let session;
 
-app.get('/app/', (req, res) => {
+app.get('/', (req, res) => {
     res.redirect('/app/feed');
 })
 
