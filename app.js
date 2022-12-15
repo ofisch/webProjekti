@@ -74,8 +74,7 @@ app.get('/feed', (req, res) => {
             //console.log(data[i]);       
         }
       
-        res.render('feed', {data});
-        //res.sendFile(__dirname + '/pages/index.html', {data});
+        res.render('feed', {data});    
     }) 
 });
 
@@ -213,8 +212,7 @@ app.post('/newListingPost', upload.single('img'), (req, res) => {
     console.log(userId);
 
     listingModel.addListing(title, type, img, time, desc, userId)
-    .then(function (result) {
-        //res.sendFile(__dirname + '/pages/index.html');
+    .then(function (result) { 
         res.redirect('/app/feed');
     });
 } else {
