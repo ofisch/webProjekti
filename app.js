@@ -1,6 +1,6 @@
 'use strict';
 const express = require('express');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 const db = require('./database');
 const flash = require('express-flash');
