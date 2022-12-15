@@ -99,7 +99,7 @@ app.post('/userPost', (req, res) => {
                 if (password === data[0].salasana) {
                     session = req.session;
                     session.userid = data[0].kayttajaId;               
-                    res.redirect('feed');
+                    res.redirect('/app/feed');
                 } else {
                     res.send('Sähköpostiosoite tai salasana on väärä');
                 }
@@ -109,7 +109,7 @@ app.post('/userPost', (req, res) => {
 
 app.get('/logout', (req, res) => {
     req.session.destroy();
-    res.redirect('/feed');
+    res.redirect('/app/feed');
 });
 
 app.get('/myprofile', (req, res) => {
@@ -211,10 +211,10 @@ app.post('/newListingPost', upload.single('img'), (req, res) => {
     listingModel.addListing(title, type, img, time, desc, userId)
     .then(function (result) {
         //res.sendFile(__dirname + '/pages/index.html');
-        res.redirect('/feed');
+        res.redirect('/app/feed');
     });
 } else {
-    res.redirect('/user');
+    res.sendFile(__dirname + '/pages/login.html');
 }
 });
 
