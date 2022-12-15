@@ -122,7 +122,10 @@ app.get('/myprofile', (req, res) => {
         let username;
         let email;
         let points;
+
+        let dataToProfile = [];
         let listingsToView = [];
+       
 
         userModel.getUser(req.session.userid)
             .then(function (result) {
@@ -136,20 +139,23 @@ app.get('/myprofile', (req, res) => {
                     points = data[0].pisteet;
 
                     listingModel.getListingByUserId(req.session.userid)
-                    .then(function (result) {
-                        if (result[0] === undefined) {
+                    .then(function (results) {
+                        if (results[0] === undefined) {
                             console.log('undefined');
                         } else {
-                            let listings = JSON.parse(JSON.stringify(result));   
-                            console.log(listings);
+                            let listings = JSON.parse(JSON.stringify(results));   
+                            //console.log(listings);
                             for (let i = 0; i < listings.length; i++) {
                                 //console.log(data[i]);   
-                                listingsToView[i] = listings[i];
+                                listingsToView[i] = JSON.parse(JSON.stringify(results[i]));
+                                console.log(listingsToView[i]);
                             }
+                            res.render('myprofile.ejs', {nimimerkki: username, sposti: email, pisteet: points, listings}); // ejs-näkymä
                         }
                     })
 
-                    res.render('myprofile.ejs', { nimimerkki: username, sposti: email, pisteet: points, listings: listingsToView}); // ejs-näkymä
+                    //res.render('myprofile.ejs', { nimimerkki: username, sposti: email, pisteet: points, listings: listingsToView}); // ejs-näkymä
+                  
                 }
             })       
             

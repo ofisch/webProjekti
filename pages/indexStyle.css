@@ -17,7 +17,6 @@ body {
 
 #listings {
     padding: 15px;
-
 }
 
 .listing {
@@ -113,7 +112,7 @@ nav a:hover {
 main {
     width: 495px;
     height: 40%;
-    margin: 10px auto;
+    margin: auto;
     background-color: #fff;
     border: 2px solid #e6e6e6;
     margin-top: 55px;
