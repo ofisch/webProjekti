@@ -198,5 +198,5 @@ app.post('/newListingPost', upload.single('img'), (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(` ASD! Palvelin käynnissä osoitteessa http://localhost:${port}`);
+    console.log(`Palvelin käynnissä osoitteessa http://localhost:${port}`);
 });
