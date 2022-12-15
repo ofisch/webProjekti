@@ -26,7 +26,7 @@
         <header>
             <h2>Syöte</h2>
         </header>
-        <section>
+        <section id="listings">
 
             <% if (data.length) {%>
                 <% for(let listing of data) { %>
@@ -37,7 +37,7 @@
                         <img class="listingImg" src="<%= listing.kuva %>" style="width: 100%; height: 300px;">             
                     </div>
                     <p><%= listing.kuvaus %></p>
-                    <a href="<%= listing.kayttajaId %>"><%= listing.kayttajaId %></a>  
+                    <a href="<%= listing.kayttajaId %>" style="text-decoration: none"><%= listing.nimimerkki %></a>  
                 </div>           
                 <% } %>
             <% } else { %>

@@ -24,6 +24,24 @@
         </div>
     </div>
 
+    <div id="listings">
+        <% if (listings.length) {%>
+            <% for(let listing of listings) { %>
+                <div class="listing">              
+                    <h3><%= listing.tyyppi %>: <%= listing.otsikko %></h3>                          
+                <div>
+                    <img class="listingImg" src="../<%= listing.kuva %>" style="width: 100%; height: 300px;">  
+                                   
+                </div>
+                <p><%= listing.kuvaus %></p>
+                <a href="<%= listing.kayttajaId %>" style="text-decoration: none"><%= listing.nimimerkki %></a>  
+            </div>           
+            <% } %>
+        <% } else { %>
+                <div>listauksia ei löytynyt</div>
+            <% } %> 
+    </div>
+
     <script src="../app.js"></script>
 </body>
 </html>
