@@ -2,12 +2,18 @@
     font-family: 'Sono', sans-serif;
 }
 
+body {
+    background-color: #eee;
+}
+
+
 .profileBox {
     width: 400px;
     height: 150px;
     margin: auto;
-    background-color: aquamarine;
+    background-color: #3897f0;
     display: flex;
+    border: 2px solid black;
 }
 
 .left {
