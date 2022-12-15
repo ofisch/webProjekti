@@ -75,7 +75,7 @@ app.get('/feed', (req, res) => {
     }) 
 });
 
-app.get('/app/user', (req, res) => {
+app.get('/user', (req, res) => {
     session = req.session;
     if (session.userid) {
         res.render('feed');
