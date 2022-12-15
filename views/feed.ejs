@@ -30,11 +30,17 @@
 
             <% if (data.length) {%>
                 <% for(let listing of data) { %>
-                    <div class="listing">              
-                        <h3><%= listing.tyyppi %>: <%= listing.otsikko %></h3>                          
+                    <div class="listing"> 
+                        <% if (listing.tyyppi = "myydään") {%>             
+                        <h3 style="color: yellow"><%= listing.tyyppi %>: <%= listing.otsikko %></h3>   
+                        <% } else { %>
+                            <h3 style="color: greenyellow"><%= listing.tyyppi %>: <%= listing.otsikko %></h3>
+                        <% } %>                      
                     <div>
                         <!--<img class="listingImg" src="../<%= listing.kuva %>" style="width: 100%; height: 300px;">  --> 
-                        <img class="listingImg" src="<%= listing.kuva %>" style="width: 100%; height: 300px;">             
+                        
+                        <img class="listingImg" src="<%= listing.kuva %>" style="width: 100%; height: 300px;">   
+                             
                     </div>
                     <p><%= listing.kuvaus %></p>
                     <a href="<%= listing.kayttajaId %>" style="text-decoration: none"><%= listing.nimimerkki %></a>  

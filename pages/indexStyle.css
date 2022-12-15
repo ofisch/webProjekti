@@ -23,15 +23,22 @@ body {
 .listing {
     margin-top: 10px;
     border: 3px solid #dfdddd;
+    border-radius: 15px;
 }
 
 .listing h3, p, a {
     padding-left: 10px;
 }
 
+.listing h3 {
+    border-bottom: 3px solid #dfdddd;
+    padding-bottom: 5px;
+}
+
 .listing p {
     border-top: 3px solid #dfdddd;
     border-bottom: 3px solid #dfdddd;
+    height: 35px;
 }
 
 nav {

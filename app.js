@@ -197,8 +197,6 @@ app.post('/newListingPost', upload.single('img'), (req, res) => {
     const title = req.body.title;
     const desc = req.body.description;
     const type = req.body.postType;
-    //const img = "uploads/" + req.body.img;
-    //console.log(req.body.img);
     let img = "uploads/" + req.file.filename;
     console.log(img);
     const time = "2022-12-12 13:00:00";
