@@ -78,7 +78,7 @@ app.get('/feed', (req, res) => {
 app.get('/user', (req, res) => {
     session = req.session;
     if (session.userid) {
-        res.render('feed');
+        res.redirect('/app/feed');
     }
     else {
         res.sendFile(__dirname + '/pages/login.html');
